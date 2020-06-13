@@ -1,0 +1,7 @@
+.nes-widget-container h1 {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 30px;
+    color: black;
+    text-shadow: 0.1em 0.1em 0.05em white;
+    margin-bottom: -20px;
+}
