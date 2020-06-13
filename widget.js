@@ -1,7 +1,7 @@
 const allowedEvents = ['tip-latest', 'cheer-latest', 'subscriber-latest', 'message'];
 
 const REGEX_PODCAST = /!(nes-steady|nes-patreon|nes-podcast) ([+-]?([0-9]*[.])?[0-9]+)/i;
-const REGEX_OFFSET = /!nes-offset ([+-]?([0-9]*[.])?[0-9]+)/i;
+const REGEX_OFFSET = /!nes-set-offset ([+-]?([0-9]*[.])?[0-9]+)/i;
 const REGEX_COMMAND = /!(nes-reset-donations|nes-reset-cheers|nes-reset-twitch-subscriptions|nes-reset-podcast-subscriptions|nes-reset-all)/i;
 
 const nesDataDefault = {
