@@ -2,7 +2,7 @@ const allowedEvents = ['tip-latest', 'cheer-latest', 'subscriber-latest', 'messa
 
 const REGEX_PODCAST = /!(nes-steady|nes-patreon|nes-podcast) ([+-]?([0-9]*[.])?[0-9]+)/i;
 const REGEX_OFFSET = /!nes-set-offset ([+-]?([0-9]*[.])?[0-9]+)/i;
-const REGEX_COMMAND = /!(nes-reset-donations|nes-reset-cheers|nes-reset-twitch-subscriptions|nes-reset-podcast-subscriptions|nes-reset-all)/i;
+const REGEX_COMMAND = /!(nes-reset-donations|nes-reset-cheers|nes-reset-twitch-subscriptions|nes-reset-podcast-subscriptions|nes-reset-all|nes-remove-last-donation)/i;
 
 const nesDataDefault = {
     offset: 0,
@@ -42,6 +42,14 @@ function addDonation(eventData, nesData) {
 
     console.log(donation);
     nesData.donations.push(donation);
+}
+
+/**
+ *
+ * @param nesData
+ */
+function removeLastDonation(nesData) {
+    nesData.donations.pop();
 }
 
 /**
@@ -283,6 +291,9 @@ window.addEventListener('onEventReceived', function (obj) {
                             break;
                         case '!nes-reset-all':
                             resetAll(nesData);
+                            break;
+                        case '!nes-remove-last-donation':
+                            removeLastDonation(nesData);
                             break;
                         default:
                     }
